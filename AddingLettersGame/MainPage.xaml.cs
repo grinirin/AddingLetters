@@ -32,5 +32,10 @@ namespace AddingLettersGame
             // If you are using the NavigationHelper provided by some templates,
             // this event is handled for you.
         }
+
+        private void StartGameButton_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(NumbersGamePage));
+        }
     }
 }

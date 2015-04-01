@@ -1,0 +1,58 @@
+﻿<Page
+    x:Class="AddingLettersGame.NumbersGamePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:AddingLettersGame"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:converters="using:AddingLettersGame.Converters"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    
+    <Page.Resources>
+        <converters:NumbersToTextConverter x:Key="NumbersToTextConverter"/>
+    </Page.Resources>
+    <Page.BottomAppBar>
+        <CommandBar>
+            <AppBarButton Icon="Back" Label="Back"
+                          Click="BackButton_Click"/>
+        </CommandBar>
+    </Page.BottomAppBar>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <!--<RowDefinition Height="70"/>-->
+        </Grid.RowDefinitions>
+
+        <Border BorderThickness="5"
+                BorderBrush="DarkCyan"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                CornerRadius="5">
+            <ItemsControl ItemsSource="{Binding Cells}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                            <WrapGrid MaximumRowsOrColumns="4" 
+                                      Orientation="Horizontal"/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Border Width="80" Height="80"
+                                BorderBrush="DarkCyan"
+                                Background="Transparent"
+                                BorderThickness="2">
+                            <TextBlock Text="{Binding Value, Converter={StaticResource NumbersToTextConverter}}"
+                                       Foreground="DarkCyan"
+                                       FontSize="36"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"/>
+                        </Border>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </Border>
+
+    </Grid>
+</Page>

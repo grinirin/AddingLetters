@@ -9,6 +9,21 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <TextBlock Text="Some content to show"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="200"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+        <TextBlock Text="Welcome to A -> Z Game"
+                   FontSize="36"
+                   VerticalAlignment="Bottom"
+                   HorizontalAlignment="Center"
+                   TextWrapping="Wrap"
+                   TextAlignment="Center"/>
+        <Button x:Name="StartGameButton"
+                Grid.Row="1"
+                Content="Start Game"
+                HorizontalAlignment="Center"
+                Click="StartGameButton_Click"/>
     </Grid>
 </Page>
